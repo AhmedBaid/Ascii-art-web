@@ -61,13 +61,19 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 	word := r.FormValue("word")
 	typee := r.FormValue("typee")
 
+	ctr := 0
+	for _, v := range word {
+		if v != '\r' {
+			ctr++
+		}
+	}
 	var errorMessage string
 
 	if word == "" {
 		errorMessage = "Please enter a word."
 	} else if typee == "" {
 		errorMessage = "Please select a type."
-	} else if len(word) >= 1000 {
+	} else if ctr > 1000 {
 		errorMessage = "The word length should not exceed 1000 characters."
 	}
 
@@ -78,24 +84,20 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if errorMessage != "" {
-		w.WriteHeader(http.StatusBadRequest)
-		Tp.ExecuteTemplate(w, "index.html", errorMessage)
-		return
-	}
 
+	
 	LastResult := ascii.Ascii(word, typee)
-
+	
 	if LastResult == "" {
-		errore := ErrorPage{
-			Code:         http.StatusInternalServerError,
-			ErrorMessage: "Something went wrong on our end. Please try again later.",
-		}
-
-		w.WriteHeader(http.StatusInternalServerError)
-		Tp.ExecuteTemplate(w, "statusPage.html", errore)
-		return
+		errorMessage = " invalid file name ,  dont change the file name please !!!!! "
+		
 	}
+	
+		if errorMessage != "" {
+			w.WriteHeader(http.StatusBadRequest)
+			Tp.ExecuteTemplate(w, "index.html", errorMessage)
+			return
+		}
 
 	err := Tp.ExecuteTemplate(w, "result.html", LastResult)
 	if err != nil {
