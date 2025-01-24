@@ -84,20 +84,17 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-
-	
 	LastResult := ascii.Ascii(word, typee)
-	
+
 	if LastResult == "" {
-		errorMessage = " invalid file name ,  dont change the file name please !!!!! "
-		
+		errorMessage = " invalid file name !!!!! "
 	}
-	
-		if errorMessage != "" {
-			w.WriteHeader(http.StatusBadRequest)
-			Tp.ExecuteTemplate(w, "index.html", errorMessage)
-			return
-		}
+
+	if errorMessage != "" {
+		w.WriteHeader(http.StatusBadRequest)
+		Tp.ExecuteTemplate(w, "index.html", errorMessage)
+		return
+	}
 
 	err := Tp.ExecuteTemplate(w, "result.html", LastResult)
 	if err != nil {
