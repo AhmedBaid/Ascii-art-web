@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background-color: #988686;
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@ body {
   text-align: center;
   width: 600px;
   height: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow:8px 14px 20px 1px #797474;
 }
 
 h1 {

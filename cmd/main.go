@@ -10,12 +10,14 @@ import (
 
 func main() {
 	var err error
+	// parse all the html file from the template folder to variable Tp
 	handler.Tp, err = template.ParseGlob("template/*.html")
 	if err != nil {
 		fmt.Println("Error parsing templates: ", err)
 		return
 	}
 
+	 
 	// Register handlers
 	http.HandleFunc("/styles/", handler.StyleFunc)
 	http.HandleFunc("/ascii-art", handler.ResultFunc)

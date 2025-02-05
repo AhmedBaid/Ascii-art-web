@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background-color: #988686;
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body {
   border-radius: 10px;
   text-align: center;
   width: 600px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 8px 14px 20px 1px #797474;
 }
 
 h1 {
@@ -32,7 +32,6 @@ h1 {
   margin: 20px 0;
   font-size: 16px;
   font-family: "Courier New", Courier, monospace;
-  white-space: pre-wrap;
   overflow-x: auto;
   max-height: 400px;
 }
