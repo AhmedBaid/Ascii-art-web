@@ -1,4 +1,4 @@
-# Ascii-Art-Web
+# Ascii-Art-Web (add stylize and dockerise)
 
 ## Description
 Ascii-Art-Web is a web-based application that allows users to generate ASCII art from text using different banner styles. The project extends the functionality of the previous ascii-art project by providing a graphical user interface (GUI) via a web server. Users can input text, select a banner style (shadow, standard, or thinkertoy), and view the ASCII art output on a webpage.
@@ -119,3 +119,42 @@ _|    _|   _|_|_| _| _|   _|_|
 
 Visit the application at [http://localhost:8080](http://localhost:8080) to test it yourself!
 
+## docker integration 
+- **Docker Integration**:  
+  The project will include at least one Dockerfile, one image, and one container. Proper metadata will be applied to Docker objects, and unused objects (garbage collection) will be handled carefully.
+  
+- **Web Server in Go**:  
+  The web server will be written in Go and must adhere to Go best practices.
+
+- **Docker Practices**:  
+  The project will follow Docker best practices, including the use of a Dockerfile to build and configure the container.
+
+- **Standard Go Packages**:  
+  Only the standard Go packages are allowed to be used in this project.
+
+## Technologies Used
+
+- **Go**: For the web server and ASCII art generation logic.
+- **Docker**: To containerize the application, create images, and manage containers.
+- **HTML & HTTP**: For the web interface and handling HTTP requests.
+
+## Learning Objectives
+
+This project will help you learn the following:
+
+- Client utilities for handling web requests.
+- Basics of web servers in Go.
+- HTML and HTTP protocols.
+- Methods for receiving and outputting data via web requests.
+- Introduction to Docker concepts and commands.
+- Using Docker to set up services and dependencies.
+- Containerizing applications and creating Docker images.
+- Managing application dependencies and ensuring compatibility.
+
+## Project Requirements
+
+1. **Create a Dockerfile**: The Dockerfile should respect good Docker practices for building and containerizing the Go web server.
+2. **Create a Docker Image**: Build the Docker image from the Dockerfile.
+3. **Create a Docker Container**: Run the application inside a Docker container.
+4. **Metadata Application**: Apply metadata to Docker objects to ensure proper organization and management.
+5. **Garbage Collection**: Handle unused Docker objects properly to avoid clutter and unnecessary resource consumption.
