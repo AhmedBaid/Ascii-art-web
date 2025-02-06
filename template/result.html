@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ASCII Art Result</title>
-    <link rel="stylesheet" href="/styles/result.css">
-</head>
+    <link rel="stylesheet" href="/styles/result.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1>ASCII Art Result</h1>
-        <div class="ascii-output">
-            <pre>{{.}}</pre>
-        </div>
+      <h1>ASCII Art Result</h1>
+      <div class="ascii-output">
+        <pre>{{.}}</pre>
+      </div>
+      <div class="buttons">
         <a href="/" class="btn">Back to Home</a>
+        <form action="/export" method="post">
+            <input type="hidden" name="export" value="{{.}}" />
+          <button type="submit"  class="btn"> Export</button>
+        </form>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

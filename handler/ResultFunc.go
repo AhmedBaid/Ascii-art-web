@@ -7,6 +7,8 @@ import (
 	ascii "ascii/functions"
 )
 
+var LastResult string
+
 func ResultFunc(w http.ResponseWriter, r *http.Request) {
 	// check if the path is correct
 	if r.URL.Path != "/ascii-art" {
@@ -20,7 +22,7 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 		Tp.ExecuteTemplate(w, "statusPage.html", errore)
 		return
 	}
-	//check if the method is post
+	// check if the method is post
 	if r.Method != http.MethodPost {
 		errore := ErrorPage{
 			Code:         http.StatusMethodNotAllowed,
@@ -33,18 +35,18 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	word := r.FormValue("word")
+	Word := r.FormValue("word")
 	typee := r.FormValue("typee")
 	// this is to check the length of the word is correct without the \r
 	ctr := 0
-	for _, char := range word {
+	for _, char := range Word {
 		if char != '\r' {
 			ctr++
 		}
 	}
 	var errorMessage string
 
-	if word == "" {
+	if Word == "" {
 		errorMessage = "Please enter a word."
 	} else if typee == "" {
 		errorMessage = "Please select a type."
@@ -52,16 +54,16 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 		errorMessage = "The word length should not exceed 1000 characters."
 	}
 	// check if the word has invalid characters
-	for i := 0; i < len(word); i++ {
-		if unicode.IsLetter(rune(word[i])) && (word[i] < 32 || word[i] > 126) {
+	for i := 0; i < len(Word); i++ {
+		if unicode.IsLetter(rune(Word[i])) && (Word[i] < 32 || Word[i] > 126) {
 			errorMessage = "Invalid characters."
 			break
 		}
 	}
-	// ascci function to get the result as a ascci 
-	LastResult := ascii.Ascii(word, typee)
+	// ascci function to get the result as a ascci
+	LastResult = ascii.Ascii(Word, typee)
 	//  chack if there is an error in opening the file
-	if LastResult == "" && word != "" && typee != "" {
+	if LastResult == "" && Word != "" && typee != "" {
 		errorMessage = "invalid file name !!!!!"
 	}
 	if errorMessage != "" {

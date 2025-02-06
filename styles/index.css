@@ -16,7 +16,7 @@ body {
   text-align: center;
   width: 600px;
   height: auto;
-    box-shadow:8px 14px 20px 1px #797474;
+  box-shadow: 8px 14px 20px 1px #797474;
 }
 
 h1 {
@@ -43,16 +43,17 @@ button {
   border: none;
   font-size: 23px;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 7px;
   width: 220px;
   height: 55px;
   cursor: pointer;
   text-align: center;
 }
 
-
 button:hover {
-  background-color: #411402;
+  background-color: #d1d0d0;
+  color: #411402;
+  border: 1px solid #411402;
 }
 
 .radio-input {
@@ -95,9 +96,9 @@ button:hover {
   h1 {
     font-size: 25px;
   }
-  button{
-  height: 45px;
-  width: 180px;
+  button {
+    height: 45px;
+    width: 180px;
   }
 }
 @media only screen and (max-width: 340px) {
@@ -107,9 +108,9 @@ button:hover {
   h1 {
     font-size: 20px;
   }
-  button{
-  height: 40px;
-  width: 150px;
+  button {
+    height: 40px;
+    width: 150px;
   }
   .radio-input {
     display: flex;

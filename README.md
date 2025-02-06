@@ -1,4 +1,4 @@
-# Ascii-Art-Web (add stylize and dockerise)
+# Ascii-Art-Web (add stylize and dockerise and export)
 
 ## Description
 Ascii-Art-Web is a web-based application that allows users to generate ASCII art from text using different banner styles. The project extends the functionality of the previous ascii-art project by providing a graphical user interface (GUI) via a web server. Users can input text, select a banner style (shadow, standard, or thinkertoy), and view the ASCII art output on a webpage.
@@ -119,6 +119,8 @@ _|    _|   _|_|_| _| _|   _|_|
 
 Visit the application at [http://localhost:8080](http://localhost:8080) to test it yourself!
 
+
+## Partie docker :
 ## docker integration 
 - **Docker Integration**:  
   The project will include at least one Dockerfile, one image, and one container. Proper metadata will be applied to Docker objects, and unused objects (garbage collection) will be handled carefully.
@@ -158,3 +160,38 @@ This project will help you learn the following:
 3. **Create a Docker Container**: Run the application inside a Docker container.
 4. **Metadata Application**: Apply metadata to Docker objects to ensure proper organization and management.
 5. **Garbage Collection**: Handle unused Docker objects properly to avoid clutter and unnecessary resource consumption.
+
+
+## Partie export
+### Description
+ASCII-Art-Web-Export est une extension du projet ASCII-Art-Web qui vise à permettre l'exportation des résultats ASCII générés par l'application web. L'objectif est de fournir une fonctionnalité permettant à l'utilisateur de télécharger le résultat sous un format exportable.
+
+### Objectifs
+- Assurer qu'il est possible d'exporter le résultat du projet [ASCII-Art](../../ascii-art/README.md) implémenté sur le site web.
+- Le fichier exporté doit avoir les bonnes permissions (**lecture et écriture**) pour l'utilisateur.
+- Comprendre et utiliser les en-têtes HTTP appropriées pour le transfert de fichiers :
+  - [Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)
+  - [Content-Length](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length)
+  - [Content-Disposition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition)
+- Implémenter une interface utilisateur incluant un bouton ou un lien pour télécharger/exporter le fichier.
+
+### Instructions
+- Créer un nouvel **endpoint HTTP** pour permettre le transfert du fichier vers le client.
+- Le serveur web doit **supporter au moins un format d'exportation**.
+- Le serveur web doit être implémenté en **Go**.
+- Assurer la gestion des erreurs du site web.
+- Le code doit respecter les [bonnes pratiques](../../good-practices/README.md).
+
+### Formats d'exportation possibles
+- **Fichier texte (TXT)**
+- [Autres formats](https://en.wikipedia.org/wiki/Document_file_format) peuvent être envisagés si pertinents.
+
+### Packages autorisés
+- Uniquement les packages standards de [Go](https://golang.org/pkg/).
+
+### Compétences acquises
+Ce projet vous aidera à apprendre :
+- Les bases des formats d'exportation de fichiers.
+- L'utilisation des [en-têtes HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) pour le transfert de fichiers.
+- Les différentes manières de recevoir et d'envoyer des données en HTTP.
+- L'amélioration de l'interface utilisateur en intégrant une option de téléchargement/exportation.

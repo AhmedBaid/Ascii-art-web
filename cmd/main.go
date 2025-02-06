@@ -20,6 +20,7 @@ func main() {
 	 
 	// Register handlers
 	http.HandleFunc("/styles/", handler.StyleFunc)
+	http.HandleFunc("/export", handler.Exportfunc)
 	http.HandleFunc("/ascii-art", handler.ResultFunc)
 	http.HandleFunc("/", handler.FormFunc)
 	fmt.Println("Server running at http://localhost:8080/")
