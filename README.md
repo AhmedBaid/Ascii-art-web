@@ -74,8 +74,12 @@ ASCII-ART-WEB/
 ├── functions/       // Go logic for ASCII art generation
 │   ├── Ascii.go
 │   ├── PrintAscii.go
-├── handler/          // Handler functions (StyleHandler,ResultHandler,FormHandler)
-│   ├── Handlers.go
+├── handler/          // Handler functions (ExportHandler,StyleHandler,ResultHandler,FormHandler,Tools)
+│   ├── ExportFunc.go
+│   ├── FormFunc.go
+│   ├── ResultFunc.go
+│   ├── StyleFunc.go
+│   ├── Tools.go
 ├── styles/          // CSS styles for the application
 │   ├── index.css
 │   ├── result.css
@@ -84,8 +88,11 @@ ASCII-ART-WEB/
 │   ├── index.html
 │   ├── result.html
 │   ├── stausPage.html
-├── go.mod           // Go module file
-└── README.md        // Documentation
+└── docker_info.md       // info sur docker
+└── Dockerfile           // Dockerfile
+├── go.mod               // Go module file
+└── http_info.md         // info sur http
+└── README.md            // Documentation
 
 ```
 
