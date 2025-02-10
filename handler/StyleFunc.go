@@ -1,9 +1,11 @@
-package ascii
+package handler
 
 import (
 	"net/http"
 	"os"
 	"strings"
+
+	tools "ascii/tools"
 )
 
 func StyleFunc(w http.ResponseWriter, r *http.Request) {
@@ -11,14 +13,14 @@ func StyleFunc(w http.ResponseWriter, r *http.Request) {
 	File, err := os.Stat(filePath)
 	if err != nil || File.IsDir() {
 
-		errore := ErrorPage{
+		errore := tools.ErrorPage{
 			Code:         http.StatusNotFound,
 			ErrorMessage: "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
 		}
 
 		w.WriteHeader(http.StatusNotFound)
-		Tp.ExecuteTemplate(w, "statusPage.html", errore)
+		tools.Tp.ExecuteTemplate(w, "statusPage.html", errore)
 		return
 	}
-	http.StripPrefix("/styles", http.FileServer(http.Dir("styles"))).ServeHTTP(w, r)
+	http.StripPrefix("/static", http.FileServer(http.Dir("static"))).ServeHTTP(w, r)
 }

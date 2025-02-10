@@ -1,37 +1,27 @@
-package ascii
+package handler
 
 import (
 	"net/http"
 	"unicode"
 
+	tools "ascii/tools"
 	ascii "ascii/functions"
+	helpers "ascii/helpers"
 )
 
 var LastResult string
 
 func ResultFunc(w http.ResponseWriter, r *http.Request) {
-	// check if the path is correct
-	if r.URL.Path != "/ascii-art" {
-		errore := ErrorPage{
-			Code:         http.StatusNotFound,
-			ErrorMessage: "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
-		}
-
-		w.WriteHeader(http.StatusNotFound)
-		// execute the not found template
-		Tp.ExecuteTemplate(w, "statusPage.html", errore)
-		return
-	}
 	// check if the method is post
 	if r.Method != http.MethodPost {
-		errore := ErrorPage{
+		errore := tools.ErrorPage{
 			Code:         http.StatusMethodNotAllowed,
 			ErrorMessage: "The request method is not supported for the requested resource.",
 		}
 
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		// execute the not allowed method template
-		Tp.ExecuteTemplate(w, "statusPage.html", errore)
+		tools.Tp.ExecuteTemplate(w, "statusPage.html", errore)
 		return
 	}
 
@@ -67,19 +57,8 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 		errorMessage = "invalid file name !!!!!"
 	}
 	if errorMessage != "" {
-		w.WriteHeader(http.StatusBadRequest)
-		Tp.ExecuteTemplate(w, "index.html", errorMessage)
+		helpers.RenderTemplates(w, "index.html", errorMessage, 400)
 		return
 	}
-
-	err := Tp.ExecuteTemplate(w, "result.html", LastResult)
-	if err != nil {
-		errore := ErrorPage{
-			Code:         http.StatusInternalServerError,
-			ErrorMessage: "Something went wrong on our end. Please try again later.",
-		}
-
-		w.WriteHeader(http.StatusInternalServerError)
-		Tp.ExecuteTemplate(w, "statusPage.html", errore)
-	}
+	helpers.RenderTemplates(w, "result.html", LastResult, 200)
 }

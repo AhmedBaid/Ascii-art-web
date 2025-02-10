@@ -1,4 +1,4 @@
-package ascii
+package tools
 
 import (
 	"text/template"
