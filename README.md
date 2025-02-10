@@ -79,8 +79,10 @@ ASCII-ART-WEB/
 │   ├── FormFunc.go
 │   ├── ResultFunc.go
 │   ├── StyleFunc.go
-│   ├── Tools.go
-├── styles/          // CSS styles for the application
+├── static/          // CSS styles for the application
+│     ├── images/
+│        ├── error logo.png
+│        ├── golang.png
 │   ├── index.css
 │   ├── result.css
 │   ├── stausPage.css
@@ -88,6 +90,8 @@ ASCII-ART-WEB/
 │   ├── index.html
 │   ├── result.html
 │   ├── stausPage.html
+├── tools/        // our tools 
+│   ├── tools.go
 └── docker_info.md       // info sur docker
 └── Dockerfile           // Dockerfile
 ├── go.mod               // Go module file
