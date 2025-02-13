@@ -56,12 +56,13 @@ h1 {
   text-align: center;
   transition: background-color 0.3s;
   width: 200px;
+  border: transparent;
 }
 
 .btn:hover {
   background-color: #d1d0d0;
   color: #411402;
-  border: 1px solid #411402;
+  border:1px #411402 solid;
 }
 
 @media only screen and (max-width: 700px) {
